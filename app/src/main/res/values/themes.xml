@@ -14,4 +14,12 @@
     </style>
 
 
+        <style name="TextInputEditTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <item name="colorControlNormal">@color/grey</item> <!-- Default border color -->
+            <item name="colorControlActivated">@color/purple</item> <!-- Color when the field is focused -->
+            <item name="colorControlHighlight">@color/purple</item> <!-- Color for the floating label when the field is focused -->
+        </style>
+
+
+
 </resources>
