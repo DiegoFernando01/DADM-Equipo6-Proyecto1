@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">DogApp</string>
-    <string name="login_dogapp_icon">DogApp_Icon</string>
-    <string name="login_fingerprint_icon">Fingerprint_icon</string>
+    <string name="login_dogapp_image">Ícono DogApp</string>
+    <string name="login_fingerprint_icon">Ícono huella dactilar</string>
 </resources>
