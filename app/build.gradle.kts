@@ -50,5 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     // LottieFiles
     implementation("com.airbnb.android:lottie:6.4.0")
-
+    // Lector de huellas digitales
+    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
 }
