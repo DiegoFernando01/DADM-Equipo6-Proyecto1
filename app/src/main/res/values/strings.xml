@@ -1,3 +1,10 @@
+
 <resources>
     <string name="app_name">dogApp</string>
+    <string name="hint_raza">Raza</string>
+    <string name="hint_nombre_mascota">Nombre de la mascota</string>
+    <string name="toolbar_title">Nueva Cita</string>
+    <string name="back_button">Volver</string>
+    android:hint="@string/hint_raza"
+    android:text="@string/toolbar_title"
 </resources>
