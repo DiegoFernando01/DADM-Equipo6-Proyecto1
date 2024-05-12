@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun checkDeviceBiometric(v: View) {
         val biometricManager = BiometricManager.from(this)
-        var fingerPrintReader = false; var message: String
-        when(biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
+        var fingerPrintReader = false; var message: String = ""
+        when(biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
                 fingerPrintReader = true
                 message = "La aplicación puede autenticar con biometría dactilar"
@@ -69,17 +69,7 @@ class MainActivity : AppCompatActivity() {
                 message = "No fue posible habilitar el lector de huellas dactilares"
             }
             else -> {
-                val biometricState = when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
-                    BiometricManager.BIOMETRIC_SUCCESS -> "BIOMETRIC_SUCCESS"
-                    BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> "BIOMETRIC_ERROR_NO_HARDWARE"
-                    BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> "BIOMETRIC_ERROR_HW_UNAVAILABLE"
-                    BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> "BIOMETRIC_ERROR_NONE_ENROLLED"
-                    else -> "Unknown"
-                }
-                message = "Error desconocido: $biometricState"
-                Log.e("Lector de huellas", message)
-                val biometricResult = biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
-                Log.e("Lector de huellas", "Resultado de la autenticación biométrica: $biometricResult")
+                message = "Error desconocido"
             }
         }
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
@@ -91,6 +81,7 @@ class MainActivity : AppCompatActivity() {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
                 Snackbar.make(ivLoginFingerprint, "Autenticación biomética exitosa", Toast.LENGTH_LONG).show()
+                // Enviar a vista de Administrador de citas
             }
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
