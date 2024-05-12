@@ -1,8 +1,6 @@
 package com.example.dogapp
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -16,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.dogapp.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import java.util.Objects
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
@@ -36,46 +33,34 @@ class MainActivity : AppCompatActivity() {
         }
         ivLoginFingerprint = binding.ivLoginFingerprintIcon
         ivLoginFingerprint.setOnClickListener {
-            checkDeviceBiometric(it)
+            checkDeviceBiometric()
         }
-
     }
 
-    private fun createPromptInfo() {
-        promptInfo = BiometricPrompt.PromptInfo.Builder()
+    private fun createPromptInfo() { // Prompt para la autenticación biométrica
+        promptInfo = PromptInfo.Builder()
             .setTitle("Autenticación con biometría")
             .setSubtitle("Ingrese su huella digital")
-            .setNegativeButtonText("CANCEL")
+            .setNegativeButtonText("Cancelar")
             .build()
     }
-    private fun checkDeviceBiometric(v: View) {
+
+    private fun checkDeviceBiometric() { // Verifica la compatibilidad del dispositivo con la autenticación biométrica
         val biometricManager = BiometricManager.from(this)
-        var fingerPrintReader = false; var message: String = ""
         when(biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
-                fingerPrintReader = true
-                message = "La aplicación puede autenticar con biometría dactilar"
                 createBiometricListener()
                 createPromptInfo()
                 biometricPrompt.authenticate(promptInfo)
             }
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
-                message = "El dispositivo no cuenta con lector de huellas dactilar"
-            }
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> {
-                message = "El lector de huellas dactilares no se encuentra disponible"
-            }
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                message = "No fue posible habilitar el lector de huellas dactilares"
-            }
-            else -> {
-                message = "Error desconocido"
-            }
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> Toast.makeText(this, "El dispositivo no cuenta con lector de huellas dactilar", Toast.LENGTH_LONG).show()
+            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> Toast.makeText(this, "El lector de huellas dactilares no se encuentra disponible", Toast.LENGTH_LONG).show()
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> Toast.makeText(this, "El dispositivo no cuenta con huellas dactilares registradas", Toast.LENGTH_LONG).show()
+            else -> Toast.makeText(this, "Error de autenticación desconocido", Toast.LENGTH_LONG).show()
         }
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    private fun createBiometricListener() {
+    private fun createBiometricListener() { // Listener para autenticación biométrica
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor, object: BiometricPrompt.AuthenticationCallback(){
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
@@ -86,10 +71,6 @@ class MainActivity : AppCompatActivity() {
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
                 Snackbar.make(ivLoginFingerprint, "Autenticación biomética fallida", Toast.LENGTH_LONG).show()
-            }
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                super.onAuthenticationError(errorCode, errString)
-                Snackbar.make(ivLoginFingerprint, errString, Toast.LENGTH_LONG).show()
             }
         })
     }
