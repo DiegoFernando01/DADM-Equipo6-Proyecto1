@@ -18,17 +18,14 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) { // Operaciones sobre la vista después de creada
         super.onViewCreated(view, savedInstanceState)
-
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_HomeFragment_to_CreateFragment)
         }
     }
 
