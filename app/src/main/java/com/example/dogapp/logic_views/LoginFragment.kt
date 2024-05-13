@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
+import com.example.dogapp.R
 import com.example.dogapp.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.Executor
@@ -60,6 +62,7 @@ class LoginFragment : Fragment() { // Fragmento login
                 super.onAuthenticationSucceeded(result)
                 Snackbar.make(ivLoginFingerprint, "Autenticación biomética exitosa", Toast.LENGTH_LONG).show()
                 // Enviar a vista de Administrador de citas
+                findNavController().navigate(R.id.action_Login_to_HomeFragment)
             }
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()

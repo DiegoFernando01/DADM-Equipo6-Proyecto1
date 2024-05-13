@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/LoginFragment">
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.example.dogapp.logic_views.HomeFragment"
+        android:name="com.example.dogapp.logic_views.LoginFragment"
         android:label="Home Fragment"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_HomeFragment_to_CreateFragment"
+            android:id="@+id/action_Login_to_HomeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.dogapp.logic_views.HomeFragment"
         android:label="Home Fragment"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_HomeFragment_to_CreateFragment"
             app:destination="@id/CreateFragment" />
@@ -51,7 +51,6 @@
         android:name="com.example.dogapp.logic_views.DetailsFragment"
         android:label="@string/edit_fragment_label"
         tools:layout="@layout/fragment_edit">
-
         <action
             android:id="@+id/action_EditFragment_to_DetailsFragment"
             app:destination="@id/DetailsFragment" />
