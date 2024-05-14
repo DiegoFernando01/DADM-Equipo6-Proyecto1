@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">dogApp</string>
     <string name="hint_raza">Raza</string>
@@ -7,7 +6,8 @@
     <string name="back_button">Volver</string>
     android:hint="@string/hint_raza"
     android:text="@string/toolbar_title"
-    <string name="app_name">DogApp</string>
     <string name="login_dogapp_image">Ícono DogApp</string>
     <string name="login_fingerprint_icon">Ícono huella dactilar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
