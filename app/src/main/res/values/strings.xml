@@ -8,6 +8,11 @@
     android:text="@string/toolbar_title"
     <string name="login_dogapp_image">Ícono DogApp</string>
     <string name="login_fingerprint_icon">Ícono huella dactilar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="create_fragment_label">Create Fragment</string>
+    <string name="edit_fragment_label">Edit Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="details_fragment_label">Details Fragment</string>
 </resources>
