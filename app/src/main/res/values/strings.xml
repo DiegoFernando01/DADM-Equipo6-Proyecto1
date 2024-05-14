@@ -15,4 +15,13 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="details_fragment_label">Details Fragment</string>
+    <string-array name="symptoms_array">
+        <item>Solo duerme</item>
+        <item>No come</item>
+        <item>Fractura extremidad</item>
+        <item>Tiene pulgas</item>
+        <item>Tiene garrapatas</item>
+        <item>Bota demasiado pelo</item>
+    </string-array>
+    <string name="symptoms_auto_complete_description">Síntomas de las mascotas</string>
 </resources>

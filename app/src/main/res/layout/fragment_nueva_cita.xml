@@ -128,4 +128,23 @@
             android:textColorHint="@color/grey" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        app:hintTextColor="@color/grey"
+        app:boxStrokeColor="@color/purple"
+        app:hintEnabled="true"
+        android:hint="Síntomas">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextViewSymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </LinearLayout>
