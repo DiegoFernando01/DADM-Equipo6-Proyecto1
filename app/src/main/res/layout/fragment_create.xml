@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
 
@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/toolbar_background"
-        app:contentInsetStart="0dp"
-        android:padding="0dp">
+        android:padding="0dp"
+        app:contentInsetStart="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,16 +26,16 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="25dp"
+                android:contentDescription="@string/back_button"
                 android:padding="10dp"
-                android:src="@drawable/baseline_arrow_back_ios_pink"
-                android:contentDescription="@string/back_button" />
+                android:src="@drawable/baseline_arrow_back_ios_pink" />
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nueva Cita"
                 android:layout_centerInParent="true"
+                android:text="Nueva Cita"
                 android:textAppearance="@style/Toolbar.TitleText"
                 android:textColor="@android:color/white" />
 
@@ -43,13 +43,13 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:hintTextColor="@color/grey"
+        app:endIconMode="clear_text"
         app:hintEnabled="true"
-        app:endIconMode="clear_text">
+        app:hintTextColor="@color/grey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextNombreMascota"
@@ -64,34 +64,34 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        app:hintTextColor="@color/grey"
-        app:endIconMode="clear_text">
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/grey">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextViewRaza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Raza"
-            android:padding="12dp"
-            android:minHeight="55dp"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:minHeight="55dp"
+            android:padding="12dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNombrePropietario"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:hintTextColor="@color/grey"
         app:boxStrokeColor="@color/purple"
+        app:endIconMode="clear_text"
         app:hintEnabled="true"
-        app:endIconMode="clear_text">
+        app:hintTextColor="@color/grey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextNombrePropietario"
@@ -106,14 +106,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutTelefono"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:hintTextColor="@color/grey"
         app:boxStrokeColor="@color/purple"
+        app:endIconMode="clear_text"
         app:hintEnabled="true"
-        app:endIconMode="clear_text">
+        app:hintTextColor="@color/grey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextTelefono"
@@ -127,14 +127,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        app:hintTextColor="@color/grey"
+        android:hint="Síntomas"
         app:boxStrokeColor="@color/purple"
         app:hintEnabled="true"
-        android:hint="Síntomas">
+        app:hintTextColor="@color/grey">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextViewSintomas"
@@ -155,10 +155,10 @@
         android:backgroundTint="@color/coral"
         android:enabled="false"
         android:icon="@drawable/ic_save"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
         android:text="Guardar cita"
         android:textColor="@android:color/white"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="20dp"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp" />
 
 </LinearLayout>

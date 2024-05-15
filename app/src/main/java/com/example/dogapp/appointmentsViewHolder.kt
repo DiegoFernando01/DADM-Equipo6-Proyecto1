@@ -1,6 +1,7 @@
 package com.example.dogapp
 
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogapp.databinding.FragmentHomeBinding
 import com.example.dogapp.databinding.ItemAppointmentBinding
@@ -8,7 +9,7 @@ import com.example.dogapp.databinding.ItemAppointmentBinding
 class appointmentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val binding = ItemAppointmentBinding.bind(view)
-    val bindingHome = FragmentHomeBinding.bind(view)
+    //val bindingHome = FragmentHomeBinding.bind(view)
 
     fun render(appointmentsModel: appointments) {
         binding.tvItemName.text = appointmentsModel.name
@@ -16,7 +17,7 @@ class appointmentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvItemOrder.text = appointmentsModel.order
         // Agregar imagen
         itemView.setOnClickListener() {
-            // Evento al presionar un item
+
         }
     }
 }
