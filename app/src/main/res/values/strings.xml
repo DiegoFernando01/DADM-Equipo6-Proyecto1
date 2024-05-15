@@ -1,13 +1,32 @@
 <resources>
-    <string name="app_name">DogApp</string>
+    <string name="app_name">dogApp</string>
+    <string name="back_button">Volver</string>
+    <string name="toolbar_title">Nueva Cita</string>
+    <string name="nombre_mascota">Nombre de la mascota</string>
+    <string name="raza">Raza</string>
+    <string name="nombre_propietario">Nombre del propietario</string>
+    <string name="telefono">Teléfono</string>
+    <string name="sintomas">Síntomas</string>
+    <string name="guardar_cita">Guardar cita</string>
+    <string name="sintomas_auto_complete_description">Síntomas de las mascotas</string>
+    android:hint="@string/hint_raza"
+    android:text="@string/toolbar_title"
     <string name="login_dogapp_image">Ícono DogApp</string>
     <string name="login_fingerprint_icon">Ícono huella dactilar</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="create_fragment_label">Create Fragment</string>
     <string name="edit_fragment_label">Edit Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="details_fragment_label">Details Fragment</string>
+    <string-array name="symptoms_array">
+        <item>Solo duerme</item>
+        <item>No come</item>
+        <item>Fractura extremidad</item>
+        <item>Tiene pulgas</item>
+        <item>Tiene garrapatas</item>
+        <item>Bota demasiado pelo</item>
+    </string-array>
+    <string name="symptoms_auto_complete_description">Síntomas de las mascotas</string>
     <string name="home_create_buttom">+</string>
     <string name="home_button_create_description">Crear cita</string>
     <string name="home_label_view_title">Administrador de citas</string>

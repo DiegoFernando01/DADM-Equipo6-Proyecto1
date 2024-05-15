@@ -1,5 +1,6 @@
 package com.example.dogapp
 
+
 import android.os.Bundle
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.enableEdgeToEdge
