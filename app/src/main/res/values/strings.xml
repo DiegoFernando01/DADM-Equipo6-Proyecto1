@@ -13,8 +13,6 @@
     android:text="@string/toolbar_title"
     <string name="login_dogapp_image">Ícono DogApp</string>
     <string name="login_fingerprint_icon">Ícono huella dactilar</string>
-
-    <!-- Strings used for fragments for navigation -->
     <string name="create_fragment_label">Create Fragment</string>
     <string name="edit_fragment_label">Edit Fragment</string>
     <string name="next">Next</string>
@@ -29,6 +27,7 @@
         <item>Bota demasiado pelo</item>
     </string-array>
     <string name="symptoms_auto_complete_description">Síntomas de las mascotas</string>
-
-
+    <string name="home_create_buttom">+</string>
+    <string name="home_button_create_description">Crear cita</string>
+    <string name="home_label_view_title">Administrador de citas</string>
 </resources>
