@@ -10,4 +10,5 @@
     <string name="details_fragment_label">Details Fragment</string>
     <string name="home_create_buttom">+</string>
     <string name="home_button_create_description">Crear cita</string>
+    <string name="home_label_view_title">Administrador de citas</string>
 </resources>
