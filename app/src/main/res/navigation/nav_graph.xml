@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LoginFragment">
+    app:startDestination="@id/CreateFragment">
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.example.dogapp.logic_views.LoginFragment"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/CreateFragment"
-        android:name="com.example.dogapp.logic_views.CreateFragment"
+        android:name="com.example.dogapp.fragments.NuevaCitaActivity"
         android:label="@string/create_fragment_label"
         tools:layout="@layout/fragment_create">
         <action
