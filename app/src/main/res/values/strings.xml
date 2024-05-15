@@ -23,6 +23,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="details_fragment_label">Details Fragment</string>
+    <string name="details_header_backArrow">Back arrow</string>
     <string name="edit_cita">Editar cita</string>
     <string-array name="symptoms_array">
         <item>Solo duerme</item>
