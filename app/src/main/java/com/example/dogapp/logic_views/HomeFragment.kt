@@ -1,12 +1,15 @@
 package com.example.dogapp.logic_views
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dogapp.MainActivity
 import com.example.dogapp.R
 import com.example.dogapp.appointments
 import com.example.dogapp.appointmentsAdapter
@@ -39,12 +42,24 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
         }
     }
 
+    override fun onAttach(context: Context) { // Método de salida desde el Home
+        super.onAttach(context)
+        if (context is MainActivity) {
+            val onBackPressedDispatcher = context.getBackPressDispatcher()
+            onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    activity?.finish()
+                }
+            })
+        }
+    }
+
     override fun onDestroyView() { // Operaciones sobre la vista durante su destrucción
         super.onDestroyView()
         _binding = null
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView() { // Crea los items para el recycler view
         val recyclerView = binding.recyclerAppointments
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = appointmentsAdapter(appointmentsList)
