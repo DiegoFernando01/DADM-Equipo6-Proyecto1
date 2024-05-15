@@ -24,7 +24,7 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) { // Operaciones sobre la vista después de creada
         super.onViewCreated(view, savedInstanceState)
-        binding.fab.setOnClickListener {
+        binding.btHomeCreateAppointment.setOnClickListener {
             findNavController().navigate(R.id.action_HomeFragment_to_CreateFragment)
         }
     }
