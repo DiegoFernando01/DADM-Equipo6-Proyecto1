@@ -37,4 +37,5 @@
     <string name="home_create_buttom">+</string>
     <string name="home_button_create_description">Crear cita</string>
     <string name="home_label_view_title">Administrador de citas</string>
+    <string name="details_buttom_delete">Elimnar cita</string>
 </resources>
