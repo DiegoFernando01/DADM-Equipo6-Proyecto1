@@ -14,7 +14,6 @@ class appointmentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvItemName.text = appointmentsModel.name
         binding.tvItemDescription.text = appointmentsModel.description
         binding.tvItemOrder.text = appointmentsModel.order
-        
         // Agregar imagen
         itemView.setOnClickListener() {
             // Evento al presionar un item

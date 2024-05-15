@@ -10,7 +10,7 @@
         android:label="Home Fragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_HomeFragment_to_CreateFragment"
+            android:id="@+id/action_Login_to_HomeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
