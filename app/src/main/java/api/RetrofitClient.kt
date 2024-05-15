@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "https://dog.ceo/api/breeds/list/all"
+    private const val BASE_URL = "https://dog.ceo/api/"
 
     val dogApiService: DogApiService by lazy {
         Retrofit.Builder()

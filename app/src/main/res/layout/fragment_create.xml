@@ -155,8 +155,8 @@
         android:backgroundTint="@color/coral"
         android:enabled="false"
         android:icon="@drawable/ic_save"
-        android:iconGravity="textStart"
-        android:iconPadding="8dp"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
         android:text="Guardar cita"
         android:textColor="@android:color/white"
         app:cornerRadius="20dp" />
