@@ -30,7 +30,6 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -60,8 +59,7 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
     }
 
     private fun initRecyclerView() { // Crea los items para el recycler view
-        val recyclerView = binding.recyclerAppointments
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = appointmentsAdapter(appointmentsList)
+        binding.recyclerAppointments.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerAppointments.adapter = appointmentsAdapter(appointmentsList)
     }
 }
