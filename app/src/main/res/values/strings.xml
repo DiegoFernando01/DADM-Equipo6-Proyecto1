@@ -15,9 +15,15 @@
     <string name="login_fingerprint_icon">Ícono huella dactilar</string>
     <string name="create_fragment_label">Create Fragment</string>
     <string name="edit_fragment_label">Edit Fragment</string>
+    <string name="editname_fragment_label">Nombre de la mascota</string>
+    <string name="editraza_fragment_label">Raza</string>
+    <string name="editpropietario_fragment_label">Nombre del propietario</string>
+    <string name="edittel_fragment_label">Teléfono</string>
+    <string name="editbuttom_fragment_label">Editar cita</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="details_fragment_label">Details Fragment</string>
+    <string name="edit_cita">Editar cita</string>
     <string-array name="symptoms_array">
         <item>Solo duerme</item>
         <item>No come</item>
