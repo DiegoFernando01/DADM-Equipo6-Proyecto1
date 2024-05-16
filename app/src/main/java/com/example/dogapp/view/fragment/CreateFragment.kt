@@ -1,4 +1,4 @@
-package com.example.dogapp.fragments
+package com.example.dogapp.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 // import androidx.room.Room
 import com.example.dogapp.R
-import com.example.dogapp.api.RetrofitClient
+import com.example.dogapp.webservice.RetrofitClient
 import com.example.dogapp.databinding.FragmentCreateBinding
-import com.example.dogapp.model.DogBreedsResponse
+import com.example.dogapp.DogBreedsResponse
 // import com.example.dogapp.model.Cita
 // import com.example.dogapp.database.AppDatabase
 import com.google.android.material.button.MaterialButton
@@ -24,7 +24,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NuevaCitaActivity : Fragment() {
+class CreateFragment : Fragment() {
     private var _binding: FragmentCreateBinding? = null
     private val binding get() = _binding!!
     private lateinit var autoCompleteTextViewRaza: AutoCompleteTextView

@@ -1,4 +1,4 @@
-package com.example.dogapp.logic_views
+package com.example.dogapp.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
