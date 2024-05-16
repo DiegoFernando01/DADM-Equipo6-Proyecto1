@@ -7,7 +7,7 @@ import java.io.Serializable
 @Entity
 data class Appointment(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 1,
+    val id: Int = 0,
     val name: String,
     val breed: String,
     val owner: String,

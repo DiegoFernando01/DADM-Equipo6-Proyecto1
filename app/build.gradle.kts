@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
-
-
 
 android {
     namespace = "com.example.dogapp"
@@ -65,7 +65,8 @@ dependencies {
     // Lector de huellas digitales
     implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
     //Room
-    implementation("androidx.room:room-runtime:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
-
+    val room_version = "2.5.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 }
