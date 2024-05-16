@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="logic_views.DetailsFragment">
-
+    tools:context=".view.fragment.DetailsFragment">
 
     <Button
         android:id="@+id/button_delete"
@@ -15,6 +13,7 @@
         android:layout_height="70dp"
         android:layout_marginBottom="48dp"
         android:backgroundTint="#F05861"
+        android:contentDescription="@string/details_buttom_delete"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
         app:cornerRadius="15dp"
@@ -25,8 +24,7 @@
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="@color/white"
-        app:strokeColor="#9E2727"
-        android:contentDescription="@string/button_delete_description" />
+        app:strokeColor="#9E2727" />
 
 
     <Button
@@ -53,10 +51,10 @@
         android:layout_width="371dp"
         android:layout_height="115dp"
         android:layout_marginStart="25dp"
-        app:layout_constraintHeight_percent="0.1"
         android:layout_marginEnd="25dp"
         android:background="@drawable/details_header"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -67,9 +65,9 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/details_header_backArrow"
-            android:src="@drawable/details_icon_back"
+            android:contentDescription="@string/back_button"
             android:padding="16dp"
+            android:src="@drawable/details_icon_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintHorizontal_bias="0.0"
@@ -103,8 +101,7 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"></androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_photo"

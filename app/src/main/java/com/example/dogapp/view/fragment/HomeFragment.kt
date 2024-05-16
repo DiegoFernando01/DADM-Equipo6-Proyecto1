@@ -1,4 +1,4 @@
-package com.example.dogapp.logic_views
+package com.example.dogapp.view.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -9,10 +9,10 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dogapp.MainActivity
+import com.example.dogapp.view.MainActivity
 import com.example.dogapp.R
 import com.example.dogapp.appointments
-import com.example.dogapp.appointmentsAdapter
+import com.example.dogapp.view.adapter.AppointmentsAdapter
 import com.example.dogapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() { // Fragmento administrador de citas
@@ -60,6 +60,6 @@ class HomeFragment : Fragment() { // Fragmento administrador de citas
 
     private fun initRecyclerView() { // Crea los items para el recycler view
         binding.recyclerAppointments.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerAppointments.adapter = appointmentsAdapter(appointmentsList)
+        binding.recyclerAppointments.adapter = AppointmentsAdapter(appointmentsList)
     }
 }

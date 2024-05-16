@@ -1,16 +1,21 @@
-package com.example.dogapp.fragments
+package com.example.dogapp.view.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 // import androidx.room.Room
 import com.example.dogapp.R
-import com.example.dogapp.api.RetrofitClient
-import com.example.dogapp.model.DogBreedsResponse
+import com.example.dogapp.webservice.RetrofitClient
+import com.example.dogapp.databinding.FragmentCreateBinding
+import com.example.dogapp.DogBreedsResponse
 // import com.example.dogapp.model.Cita
 // import com.example.dogapp.database.AppDatabase
 import com.google.android.material.button.MaterialButton
@@ -19,7 +24,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NuevaCitaActivity : AppCompatActivity() {
+class CreateFragment : Fragment() {
+    private var _binding: FragmentCreateBinding? = null
+    private val binding get() = _binding!!
     private lateinit var autoCompleteTextViewRaza: AutoCompleteTextView
     private lateinit var autoCompleteTextViewSintomas: AutoCompleteTextView
     private lateinit var textInputEditTextNombreMascota: TextInputEditText
@@ -27,32 +34,38 @@ class NuevaCitaActivity : AppCompatActivity() {
     private lateinit var textInputEditTextTelefono: TextInputEditText
     private lateinit var botonGuardarCita: MaterialButton
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_nueva_cita)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentCreateBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Configuración del Toolbar
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val toolbar: Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener {
-            onBackPressed()
+            activity?.onBackPressed()
         }
 
         // Inicializar vistas
-        autoCompleteTextViewRaza = findViewById(R.id.autoCompleteTextViewRaza)
-        autoCompleteTextViewSintomas = findViewById(R.id.autoCompleteTextViewSintomas)
-        textInputEditTextNombreMascota = findViewById(R.id.textInputEditTextNombreMascota)
-        textInputEditTextNombrePropietario = findViewById(R.id.textInputEditTextNombrePropietario)
-        textInputEditTextTelefono = findViewById(R.id.textInputEditTextTelefono)
-        botonGuardarCita = findViewById(R.id.botonGuardarCita)
+        autoCompleteTextViewRaza = binding.autoCompleteTextViewRaza
+        autoCompleteTextViewSintomas = binding.autoCompleteTextViewSintomas
+        textInputEditTextNombreMascota = binding.textInputEditTextNombreMascota
+        textInputEditTextNombrePropietario = binding.textInputEditTextNombrePropietario
+        textInputEditTextTelefono = binding.textInputEditTextTelefono
+        botonGuardarCita = binding.botonGuardarCita
 
         // Obtener lista de razas de perros usando Api-Retrofit
         obtenerListaRazasPerros()
 
         // Configurar lista de síntomas desde strings.xml
         val sintomas = resources.getStringArray(R.array.symptoms_array)
-        val sintomasAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sintomas)
+        val sintomasAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, sintomas)
         autoCompleteTextViewSintomas.setAdapter(sintomasAdapter)
 
         // Añadir listeners para habilitar/deshabilitar el botón
@@ -61,12 +74,17 @@ class NuevaCitaActivity : AppCompatActivity() {
         // Configurar listener del botón
         botonGuardarCita.setOnClickListener {
             if (autoCompleteTextViewSintomas.text.isNullOrEmpty()) {
-                Toast.makeText(this, "Selecciona un síntoma", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Selecciona un síntoma", Toast.LENGTH_SHORT).show()
             } else {
                 // saveAppointment()
-                Toast.makeText(this, "Función de guardar cita aún no implementada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Función de guardar cita aún no implementada", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onDestroyView() { // Operaciones sobre la vista durante su destrucción
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun obtenerListaRazasPerros() {
@@ -76,12 +94,12 @@ class NuevaCitaActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val breedsResponse = response.body()
                     val breeds = breedsResponse?.message?.keys?.toList() ?: listOf()
-                    val adapter = ArrayAdapter(this@NuevaCitaActivity, android.R.layout.simple_dropdown_item_1line, breeds)
+                    val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, breeds)
                     autoCompleteTextViewRaza.setAdapter(adapter)
                 }
             }
             override fun onFailure(call: Call<DogBreedsResponse>, t: Throwable) {
-                Toast.makeText(this@NuevaCitaActivity, "Error al obtener las razas de perros", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Error al obtener las razas de perros", Toast.LENGTH_SHORT).show()
             }
         })
     }
