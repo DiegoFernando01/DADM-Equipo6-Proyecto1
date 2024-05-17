@@ -48,11 +48,11 @@
     </fragment>
     <fragment
         android:id="@+id/EditFragment"
-        android:name="com.example.dogapp.view.fragment.DetailsFragment"
+        android:name="com.example.dogapp.view.fragment.EditFragment"
         android:label="@string/edit_fragment_label"
         tools:layout="@layout/fragment_edit">
         <action
-            android:id="@+id/action_EditFragment_to_DetailsFragment"
-            app:destination="@id/DetailsFragment" />
+            android:id="@+id/action_EditFragment_to_HomeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

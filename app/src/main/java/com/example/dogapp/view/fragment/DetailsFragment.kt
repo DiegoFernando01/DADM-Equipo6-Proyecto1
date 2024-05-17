@@ -58,6 +58,9 @@ class DetailsFragment : Fragment() { // Fragmento detalle citas
         val receivedBundle = arguments
         receivedAppointment = receivedBundle?.getSerializable("clave") as Appointment
         binding.tvDetailsPetName.text = "${receivedAppointment.name}"
+        binding.tvDetailsBreed.text = "${receivedAppointment.breed}"
+        binding.tvDetailsSymptoms.text = "${receivedAppointment.symptoms}"
+        binding.tvDetailsPhone.text = "${receivedAppointment.phone}"
         // Agregar demás campos de texto
     }
 }

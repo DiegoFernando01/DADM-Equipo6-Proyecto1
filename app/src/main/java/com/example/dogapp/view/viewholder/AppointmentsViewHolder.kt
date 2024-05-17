@@ -11,12 +11,12 @@ class AppointmentsViewHolder(binding: ItemAppointmentBinding, navController: Nav
     RecyclerView.ViewHolder(binding.root) {
     val bindingItem = binding
     val navController = navController
-    //val bindingHome = FragmentHomeBinding.bind(view)
 
     fun setItemAppointment(appointments: Appointment) {
         bindingItem.tvItemName.text = appointments.name
         bindingItem.tvItemDescription.text = appointments.symptoms
         bindingItem.tvItemOrder.text = appointments.id.toString()
+
         //Agregar aquí elementos restantes
         // Agregar imagen
 
