@@ -6,20 +6,20 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.dogapp.model.Appointment
+import com.example.dogapp.model.Cita
 
 @Dao
-interface AppointmentsDao {
+interface CitaDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAppointment(appointment: Appointment)
+    @Insert
+    fun insert(cita: Cita)
 
     @Query("SELECT * FROM Appointment")
-    suspend fun getAllAppointments(): MutableList<Appointment>
+    fun getAllCitas(): List<Cita>
 
     @Delete
-    suspend fun deleteAppointment(appointment: Appointment)
+    suspend fun deleteAppointment(appointment: Cita)
 
     @Update
-    suspend fun updateAppointment(appointment: Appointment)
+    suspend fun updateAppointment(appointment: Cita)
 }

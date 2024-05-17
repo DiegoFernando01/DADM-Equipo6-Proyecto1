@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-// import androidx.room.Room
+import androidx.room.Room
+import androidx.navigation.fragment.findNavController
 import com.example.dogapp.R
 import com.example.dogapp.webservice.RetrofitClient
 import com.example.dogapp.databinding.FragmentCreateBinding
 import com.example.dogapp.DogBreedsResponse
-// import com.example.dogapp.model.Cita
-// import com.example.dogapp.database.AppDatabase
+import com.example.dogapp.model.Cita
+import com.example.dogapp.data.AppDatabase
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -121,13 +122,12 @@ class CreateFragment : Fragment() {
         return nombreMascota.isNotEmpty() && raza.isNotEmpty() && nombrePropietario.isNotEmpty() && telefono.isNotEmpty()
     }
 
-    /*
     private fun saveAppointment() {
         val db = Room.databaseBuilder(
-            applicationContext,
+            requireContext(),
             AppDatabase::class.java, "appointments-db"
         ).allowMainThreadQueries().build()
-        val appointmentDao = db.appointmentDao()
+        val appointmentDao = db.citaDao()
 
         val cita = Cita(
             nombreMascota = textInputEditTextNombreMascota.text.toString(),
@@ -138,10 +138,10 @@ class CreateFragment : Fragment() {
         )
 
         appointmentDao.insert(cita)
-        Toast.makeText(this, "Cita guardada", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Cita guardada", Toast.LENGTH_SHORT).show()
 
         // Navegar a Home Administrador de Citas
-        finish()
+        findNavController().navigate(R.id.action_CreateFragment_to_HomeFragment)
+
     }
-    */
 }

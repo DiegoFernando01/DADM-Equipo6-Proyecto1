@@ -4,13 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity
-data class Appointment(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 1,
-    val name: String,
-    val breed: String,
-    val owner: String,
-    val symptoms: String,
-    val phone: String
+@Entity(tableName = "citas")
+data class Cita(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val nombreMascota: String,
+    val raza: String,
+    val nombrePropietario: String,
+    val telefono: String,
+    val sintomas: String
 ) : Serializable

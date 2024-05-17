@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/LoginFragment">
+
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.example.dogapp.view.fragment.LoginFragment"
-        android:label="Home Fragment"
+        android:label="Login Fragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_Login_to_HomeFragment"
+            android:id="@+id/action_LoginFragment_to_HomeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.dogapp.view.fragment.HomeFragment"
@@ -20,39 +22,42 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_HomeFragment_to_CreateFragment"
-            app:destination="@id/CreateFragment" />
+            app:destination="@id/createFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_DetailsFragment"
-            app:destination="@id/DetailsFragment" />
+            android:id="@+id/action_HomeFragment_to_DetailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/CreateFragment"
+        android:id="@+id/createFragment"
         android:name="com.example.dogapp.view.fragment.CreateFragment"
         android:label="@string/create_fragment_label"
         tools:layout="@layout/fragment_create">
         <action
-            android:id="@+id/action_CreateFragment_to_homeFragment"
+            android:id="@+id/action_CreateFragment_to_HomeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/DetailsFragment"
+        android:id="@+id/detailsFragment"
         android:name="com.example.dogapp.view.fragment.DetailsFragment"
         android:label="@string/details_fragment_label"
         tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_DetailsFragment_to_EditFragment"
-            app:destination="@id/EditFragment" />
+            app:destination="@id/editFragment" />
         <action
-            android:id="@+id/action_DetailsFragment_to_homeFragment"
+            android:id="@+id/action_DetailsFragment_to_HomeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/EditFragment"
-        android:name="com.example.dogapp.view.fragment.DetailsFragment"
+        android:id="@+id/editFragment"
+        android:name="com.example.dogapp.view.fragment.EditFragment"
         android:label="@string/edit_fragment_label"
         tools:layout="@layout/fragment_edit">
         <action
             android:id="@+id/action_EditFragment_to_DetailsFragment"
-            app:destination="@id/DetailsFragment" />
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+     ("androidx.navigation.safeargs")
 }
 
 
@@ -40,6 +41,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -67,5 +69,7 @@ dependencies {
     //Room
     implementation("androidx.room:room-runtime:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
-
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    implementation ("com.github.bumptech.glide:compiler:4.13.2")
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
 }
