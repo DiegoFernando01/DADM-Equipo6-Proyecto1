@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
-
-
 
 android {
     namespace = "com.example.dogapp"
@@ -36,12 +36,11 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -65,7 +64,12 @@ dependencies {
     // Lector de huellas digitales
     implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
     //Room
-    implementation("androidx.room:room-runtime:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
-
+    val room_version = "2.5.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation("com.squareup.okhttp3:okhttp:4.9.2")
+    implementation("org.json:json:20210307")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    ksp("androidx.room:room-compiler:$room_version")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dogApp</string>
+    <string name="app_name">DogApp</string>
     <string name="back_button">Volver</string>
     <string name="toolbar_title">Nueva Cita</string>
     <string name="nombre_mascota">Nombre de la mascota</string>
