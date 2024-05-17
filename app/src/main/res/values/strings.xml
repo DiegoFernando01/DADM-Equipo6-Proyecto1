@@ -38,4 +38,11 @@
     <string name="home_button_create_description">Crear cita</string>
     <string name="home_label_view_title">Administrador de citas</string>
     <string name="details_buttom_delete">Elimnar cita</string>
+    <string name="app_name">DogApp</string>
+    <string name="details_button_delete">Eliminar</string>
+    <string name="details_button_edit">Editar&lt;</string>
+    <string name="back_button">Volver</string>
+    <string name="propietario_label">Propietario: %1$s</string>
+    <string name="telefono_label">Teléfono: %1$s</string>
+    <string name="turno_label">Turno #: %1$d</string>
 </resources>

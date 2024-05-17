@@ -12,12 +12,19 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun citaDao(): CitaDao
 
     companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
+
         fun getDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                NAME_BD
-            ).build()
+                    "appointments-db"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
         }
     }
 }

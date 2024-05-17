@@ -11,15 +11,17 @@ import com.example.dogapp.model.Cita
 @Dao
 interface CitaDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(cita: Cita)
 
-    @Query("SELECT * FROM Appointment")
-    fun getAllCitas(): List<Cita>
+
+
+    @Query("SELECT * FROM citas WHERE id = :id")
+    fun getCitaById(id: Int): Cita
 
     @Delete
-    suspend fun deleteAppointment(appointment: Cita)
+    suspend fun deleteCita(cita: Cita)
 
     @Update
-    suspend fun updateAppointment(appointment: Cita)
+    suspend fun updateCita(cita: Cita)
 }

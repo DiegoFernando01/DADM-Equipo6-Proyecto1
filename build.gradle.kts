@@ -5,8 +5,25 @@ plugins {
 }
 
 buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
     dependencies {
-        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2")
+        classpath("com.android.tools.build:gradle:8.4.0") // Asegúrate de que esta versión sea la correcta
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0") // Actualiza según sea necesario
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
+        // Otras dependencias aquí...
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete(rootProject.buildDir)
+}

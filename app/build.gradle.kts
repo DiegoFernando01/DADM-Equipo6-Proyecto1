@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-     ("androidx.navigation.safeargs")
 }
 
 
@@ -43,7 +42,6 @@ android {
 
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,18 +56,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    // Dependencias
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.android.material:material:1.4.0")
-    // LottieFiles
     implementation("com.airbnb.android:lottie:6.4.0")
-    // Lector de huellas digitales
     implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
-    //Room
     implementation("androidx.room:room-runtime:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
-    implementation ("com.github.bumptech.glide:compiler:4.13.2")
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
+    implementation("com.github.bumptech.glide:compiler:4.13.2")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
