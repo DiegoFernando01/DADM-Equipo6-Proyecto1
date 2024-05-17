@@ -24,6 +24,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/home_item_photo"
                 android:importantForAccessibility="no"
+                android:src="@mipmap/login_dog"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

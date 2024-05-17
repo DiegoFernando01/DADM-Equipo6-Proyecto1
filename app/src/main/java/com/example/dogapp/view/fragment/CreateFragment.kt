@@ -1,27 +1,25 @@
 package com.example.dogapp.view.fragment
 
+// import androidx.room.Room
+// import com.example.dogapp.model.Cita
+// import com.example.dogapp.database.AppDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AutoCompleteTextView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-// import androidx.room.Room
-import com.example.dogapp.R
-import com.example.dogapp.webservice.RetrofitClient
-import com.example.dogapp.databinding.FragmentCreateBinding
 import com.example.dogapp.DogBreedsResponse
+import com.example.dogapp.R
+import com.example.dogapp.databinding.FragmentCreateBinding
 import com.example.dogapp.model.Appointment
 import com.example.dogapp.viewmodel.AppointmentViewModel
-// import com.example.dogapp.model.Cita
-// import com.example.dogapp.database.AppDatabase
+import com.example.dogapp.webservice.RetrofitClient
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -49,13 +47,7 @@ class CreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configuración del Toolbar
-        val toolbar: Toolbar = binding.toolbar
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
-        }
+        controllers()
 
         // Inicializar vistas
         autoCompleteTextViewRaza = binding.autoCompleteTextViewRaza
@@ -95,6 +87,12 @@ class CreateFragment : Fragment() {
     override fun onDestroyView() { // Operaciones sobre la vista durante su destrucción
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun controllers() {
+        binding.ibtCreateBack.setOnClickListener() {
+            findNavController().popBackStack()
+        }
     }
 
     private fun obtenerListaRazasPerros() {

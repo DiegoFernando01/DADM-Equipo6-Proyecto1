@@ -90,7 +90,7 @@
             android:id="@+id/bt_home_create_appointment"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button_square"
             android:contentDescription="@string/home_button_create_description"

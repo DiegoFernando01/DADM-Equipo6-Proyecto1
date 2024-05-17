@@ -45,6 +45,9 @@ class DetailsFragment : Fragment() { // Fragmento detalle citas
             bundle.putSerializable("dataAppointment", receivedAppointment)
             findNavController().navigate(R.id.action_DetailsFragment_to_EditFragment)
         }
+        binding.ibtDetailsBack.setOnClickListener() {
+            findNavController().popBackStack()
+        }
     }
 
     private fun deleteAppointment() { // Eliminar en BD cita
@@ -60,7 +63,8 @@ class DetailsFragment : Fragment() { // Fragmento detalle citas
         binding.tvDetailsPetName.text = "${receivedAppointment.name}"
         binding.tvDetailsBreed.text = "${receivedAppointment.breed}"
         binding.tvDetailsSymptoms.text = "${receivedAppointment.symptoms}"
-        binding.tvDetailsPhone.text = "${receivedAppointment.phone}"
+        binding.tvDetailsOwner.text = "Propietario: ${receivedAppointment.owner}"
+        binding.tvDetailsPhone.text = "Teléfono: ${receivedAppointment.phone}"
         // Agregar demás campos de texto
     }
 }
