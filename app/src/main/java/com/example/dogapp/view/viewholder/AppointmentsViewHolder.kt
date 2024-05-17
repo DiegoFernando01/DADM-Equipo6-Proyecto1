@@ -18,10 +18,11 @@ class AppointmentsViewHolder(binding: ItemAppointmentBinding, navController: Nav
     val navController = navController
     private val client = OkHttpClient()  // Añadir esta línea para inicializar el cliente
 
-    fun setItemAppointment(appointments: Appointment) {
+    fun setItemAppointment(appointments: Appointment, appointmentNumberMap: HashMap<Appointment, Int>) {
+        val appointmentNumber = appointmentNumberMap[appointments]
         bindingItem.tvItemName.text = appointments.name
         bindingItem.tvItemDescription.text = appointments.symptoms
-        bindingItem.tvItemOrder.text = appointments.id.toString()
+        bindingItem.tvItemOrder.text = appointmentNumber.toString()
 
         // Agregar imagen
         fetchDogImage(appointments.breed)

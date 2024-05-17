@@ -1,5 +1,6 @@
 package com.example.dogapp.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
@@ -19,7 +20,12 @@ class AppointmentsAdapter(private val appointmentsList: MutableList<Appointment>
 
     override fun onBindViewHolder(holder: AppointmentsViewHolder, position: Int) {
         val appointment = appointmentsList[position]
-        holder.setItemAppointment(appointment)
+        val appointmentNumberMap = HashMap<Appointment, Int>()
+
+        for (i in appointmentsList.indices) {
+            appointmentNumberMap[appointmentsList[i]] = i + 1
+        }
+        holder.setItemAppointment(appointment, appointmentNumberMap)
     }
 
 }
