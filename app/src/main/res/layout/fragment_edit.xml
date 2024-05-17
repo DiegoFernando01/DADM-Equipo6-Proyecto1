@@ -1,146 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.fragment.EditFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_edit"
-        android:layout_width="371dp"
-        android:layout_height="115dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/edit_background"
-        android:minHeight="?attr/actionBarSize"
-        android:text="@string/edit_cita"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_cita"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        <variable
+            name="viewModel"
+            type="com.example.dogapp.viewmodel.AppointmentViewModel" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_Name"
-        android:hint="@string/editname_fragment_label"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.EditFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText_Name"
-            android:maxLength="15"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_edit"
+            android:layout_width="371dp"
+            android:layout_height="115dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/edit_background"
+            android:minHeight="?attr/actionBarSize"
+            android:text="@string/edit_cita"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_cita"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.048" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_Name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:saveEnabled="true"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/editname_fragment_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="15"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_Raza"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="349dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/editraza_fragment_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView_Raza"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_Raza"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="349dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="32dp"
             android:hint="@string/editraza_fragment_label"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingLeft="15sp"
-            android:textColor="@color/material_dynamic_neutral40"
-            android:textColorLink="#7B7A7A"
-            android:textSize="16sp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView_Raza"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:hint="@string/editraza_fragment_label"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="15sp"
+                android:textColor="@color/material_dynamic_neutral40"
+                android:textColorLink="#7B7A7A"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_Propietario"
-        android:hint="@string/editpropietario_fragment_label"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText_Propietario"
-            android:maxLength="30"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_Propietario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:saveEnabled="true"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/editpropietario_fragment_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText_Propietario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_Telefono"
-        android:hint="@string/edittel_fragment_label"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText_Telefono"
-            android:maxLength="30"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_Telefono"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:saveEnabled="true"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/edittel_fragment_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
 
-    <Button
-        android:id="@+id/button_editar"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#F05861"
-        android:hint="@string/editbuttom_fragment_label"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        app:icon="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Telefono"
-        app:rippleColor="@color/white"
-        app:strokeColor="#9E2727" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText_Telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_editar"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F05861"
+            android:hint="@string/editbuttom_fragment_label"
+            android:textColor="@color/white"
+            android:textColorHint="#FFFFFF"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Telefono"
+            app:rippleColor="@color/white"
+            app:strokeColor="#9E2727" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

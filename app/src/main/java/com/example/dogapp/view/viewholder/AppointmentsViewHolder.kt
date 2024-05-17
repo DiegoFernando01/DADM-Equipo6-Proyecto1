@@ -1,22 +1,30 @@
 package com.example.dogapp.view.viewholder
 
-import android.view.View
+import android.os.Bundle
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dogapp.appointments
+import com.example.dogapp.R
 import com.example.dogapp.databinding.ItemAppointmentBinding
+import com.example.dogapp.model.Appointment
 
-class AppointmentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    val binding = ItemAppointmentBinding.bind(view)
+class AppointmentsViewHolder(binding: ItemAppointmentBinding, navController: NavController) :
+    RecyclerView.ViewHolder(binding.root) {
+    val bindingItem = binding
+    val navController = navController
     //val bindingHome = FragmentHomeBinding.bind(view)
 
-    fun render(appointmentsModel: appointments) {
-        binding.tvItemName.text = appointmentsModel.name
-        binding.tvItemDescription.text = appointmentsModel.description
-        binding.tvItemOrder.text = appointmentsModel.order
+    fun setItemAppointment(appointments: Appointment) {
+        bindingItem.tvItemName.text = appointments.name
+        bindingItem.tvItemDescription.text = appointments.symptoms
+        bindingItem.tvItemOrder.text = appointments.id.toString()
+        //Agregar aquí elementos restantes
         // Agregar imagen
-        itemView.setOnClickListener() {
 
+
+        bindingItem.CVAppointments.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("clave", appointments)
+            navController.navigate(R.id.action_homeFragment_to_DetailsFragment, bundle)
         }
     }
 }

@@ -1,118 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.fragment.DetailsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/button_delete"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="48dp"
-        android:backgroundTint="#F05861"
-        android:contentDescription="@string/details_buttom_delete"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        app:cornerRadius="15dp"
-        app:icon="@android:drawable/ic_menu_delete"
-        app:iconSize="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/white"
-        app:strokeColor="#9E2727" />
+    <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.dogapp.viewmodel.AppointmentViewModel" />
 
-    <Button
-        android:id="@+id/button_editar"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="48dp"
-        android:backgroundTint="@color/grey"
-        android:text="Editar"
-        android:textColor="@color/white"
-        app:cornerRadius="15dp"
-        app:icon="@android:drawable/ic_menu_edit"
-        app:iconSize="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/white"
-        app:strokeColor="#9E2727" />
-
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="371dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/details_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.DetailsFragment">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/back_button"
-            android:padding="16dp"
-            android:src="@drawable/details_icon_back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.494" />
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/button_delete"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="65dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="48dp"
+            android:backgroundTint="#F05861"
+            android:contentDescription="@string/details_buttom_delete"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textColorHint="#FFFFFF"
+            app:cornerRadius="15dp"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconSize="34dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/white"
+            app:strokeColor="#9E2727" />
+
+
+        <Button
+            android:id="@+id/button_editar"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="65dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="48dp"
+            android:backgroundTint="@color/grey"
+            android:text="Editar"
+            android:textColor="@color/white"
+            app:cornerRadius="15dp"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconSize="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.895"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/white"
+            app:strokeColor="#9E2727" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="371dp"
+            android:layout_height="115dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/details_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/back_button"
+                android:padding="16dp"
+                android:src="@drawable/details_icon_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.494" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/container"
+            android:layout_width="390dp"
+            android:layout_height="290dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="268dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/container_photo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="160dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/container"
-        android:layout_width="390dp"
-        android:layout_height="290dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="268dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/container_photo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="160dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
