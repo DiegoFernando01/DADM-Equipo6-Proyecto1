@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -14,33 +13,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragment.EditFragment">
+        android:background="@color/ligth_pink"
+        android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.Toolbar
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar_edit"
-            android:layout_width="371dp"
-            android:layout_height="115dp"
-            android:background="@drawable/edit_background"
-            android:minHeight="?attr/actionBarSize"
-            android:text="@string/edit_cita"
-            android:theme="?attr/actionBarTheme"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/details_header"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_cita"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.048" />
+            <ImageButton
+                android:id="@+id/ibt_details_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/back_button"
+                android:padding="16dp"
+                android:src="@drawable/details_icon_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_details_pet_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.494" />
+
+
+            <TextView
+                android:id="@+id/tv_details_pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lilita_one"
+                android:text="Editar cita"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_Name"
@@ -48,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/editname_fragment_label"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,15 +88,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_Raza"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="349dp"
-            android:layout_height="59dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/editraza_fragment_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Name">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextView_Raza"
@@ -96,12 +117,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/editpropietario_fragment_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Raza">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditText_Propietario"
@@ -118,12 +139,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/edittel_fragment_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_edit">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Propietario">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputEditText_Telefono"
@@ -149,7 +170,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Telefono"
             app:rippleColor="@color/white"
             app:strokeColor="#9E2727" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
