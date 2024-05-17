@@ -1,6 +1,7 @@
 package com.example.dogapp.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,9 +42,10 @@ class DetailsFragment : Fragment() { // Fragmento detalle citas
             deleteAppointment()
         }
         binding.buttonEditar.setOnClickListener() {
-            val bundle = Bundle()
-            bundle.putSerializable("dataAppointment", receivedAppointment)
-            findNavController().navigate(R.id.action_DetailsFragment_to_EditFragment)
+            val bundle = Bundle().apply {
+                putSerializable("dataAppointment", receivedAppointment)
+            }
+            findNavController().navigate(R.id.action_DetailsFragment_to_EditFragment, bundle)
         }
         binding.ibtDetailsBack.setOnClickListener() {
             findNavController().popBackStack()
