@@ -1,8 +1,5 @@
 package com.example.dogapp.view.fragment
 
-// import androidx.room.Room
-// import com.example.dogapp.model.Cita
-// import com.example.dogapp.database.AppDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
