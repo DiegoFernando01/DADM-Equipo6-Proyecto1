@@ -8,16 +8,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.dogapp.R
 import com.example.dogapp.databinding.FragmentDetailsBinding
 import com.example.dogapp.model.Appointment
 import com.example.dogapp.viewmodel.AppointmentViewModel
+import okhttp3.*
+import org.json.JSONObject
+import java.io.IOException
+
 
 class DetailsFragment : Fragment() { // Fragmento detalle citas
 
     private lateinit var binding: FragmentDetailsBinding
     private val appointmentViewModel: AppointmentViewModel by viewModels()
     private lateinit var receivedAppointment: Appointment
+    private val client = OkHttpClient()
 
     override fun onCreateView( // Operaciones sobre la vista durante su creación
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,5 +74,33 @@ class DetailsFragment : Fragment() { // Fragmento detalle citas
         binding.tvDetailsOwner.text = "Propietario: ${receivedAppointment.owner}"
         binding.tvDetailsPhone.text = "Teléfono: ${receivedAppointment.phone}"
         // Agregar demás campos de texto
+    }
+    private fun fetchDogImage(breed: String) {
+        val url = "https://dog.ceo/api/breed/$breed/images/random"
+        Log.d("DetailsFragment", "Fetching image from URL: $url")
+        val request = Request.Builder().url(url).build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("DetailsFragment", "Error fetching dog image", e)
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    response.body?.let {
+                        val jsonResponse = JSONObject(it.string())
+                        val imageUrl = jsonResponse.getString("message")
+                        Log.d("DetailsFragment", "Fetched image URL: $imageUrl")  // Log para verificar la URL de la imagen
+                        binding.root.post {
+                            Glide.with(binding.root.context)
+                                .load(imageUrl)
+                                .into(binding.imageView)
+                        }
+                    }
+                } else {
+                    Log.e("DetailsFragment", "Failed to fetch dog image: ${response.message}")
+                }
+            }
+        })
     }
 }
